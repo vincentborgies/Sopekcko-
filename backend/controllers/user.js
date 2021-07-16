@@ -13,7 +13,7 @@ const options = {
   letters: true,
   uppercase: true,
   lowercase: true,
-  blacklist: []
+  blacklist: [],
 };
 
 exports.login = (req, res, next) => {
@@ -42,11 +42,10 @@ exports.login = (req, res, next) => {
 };
 
 exports.signup = (req, res, next) => {
-
   console.log(validator.isEmail(req.body.email));
   console.log(passValid.validate(req.body.password, options).valid);
   console.log(req.body.password);
-  console.log(options)
+  console.log(options);
   if (
     validator.isEmail(req.body.email) &&
     passValid.validate(req.body.password, options).valid
@@ -58,7 +57,7 @@ exports.signup = (req, res, next) => {
           email: req.body.email,
           password: hash,
         });
-         user
+        user
           .save()
           .then(() =>
             res.status(201).json({
@@ -68,8 +67,8 @@ exports.signup = (req, res, next) => {
           .catch((error) => res.status(400).json({ error }));
       })
       .catch((error) => res.status(500).json({ error }));
-  } 
-    else return res.status(400).json({
+  } else
+    return res.status(400).json({
       error: "Votre adresse e-mail et mot de passe ne sont pas valides",
     });
 };

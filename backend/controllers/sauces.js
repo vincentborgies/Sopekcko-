@@ -79,7 +79,7 @@ exports.likeSauce = (req, res, next) => {
         .catch((error) => res.status(400).json({ error }));
       break;
     case -1: // Dislike Sauce
-    console.log(req.body)
+      console.log(req.body);
       Sauce.updateOne(
         { _id: req.params.id },
         {
