@@ -32,7 +32,7 @@ exports.login = (req, res, next) => {
         }
         res.status(200).json({
           userId: user._id,
-          token: jwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET", {
+          token: jwt.sign({ userId: user._id }, process.env.SECRET_KEY, {
             expiresIn: "24h",
           }),
         });
@@ -42,10 +42,6 @@ exports.login = (req, res, next) => {
 };
 
 exports.signup = (req, res, next) => {
-  console.log(validator.isEmail(req.body.email));
-  console.log(passValid.validate(req.body.password, options).valid);
-  console.log(req.body.password);
-  console.log(options);
   if (
     validator.isEmail(req.body.email) &&
     passValid.validate(req.body.password, options).valid
