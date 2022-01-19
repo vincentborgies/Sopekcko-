@@ -2,7 +2,7 @@
 
 ---
 
-MVP d'une API sécurisée pour une application d'évaluation gastronomiques de sauces
+MVP d'une API sécurisée pour une application d'évaluations gastronomiques de sauces
 
 ## Technologies utilisées
 
